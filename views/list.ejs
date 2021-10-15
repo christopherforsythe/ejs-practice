@@ -1,0 +1,31 @@
+<%- include("header") -%>
+
+    <div class="box" id="heading">
+        <h1> <%= listTitle %> </h1> 
+    </div>
+    <!--add a marker to tell the file this is where you will position the variable-->
+
+   <!--Only do code like this where it will affect the content on the browser. Do all the logic code on the server-->
+
+   <div class="box">
+    
+        <% for(var i = 0; i < newListItems.length; i++) { %>
+        <div class="item">
+            <input type="checkbox">
+                <p><%= newListItems[i] %></p>
+        </div>
+        <% } %>
+
+        <form action="/" method="POST" class="item">
+
+            <!--turn off autocomplete-->
+            <input type="text" placeholder="New Item" name="newItem" autocomplete="off">
+            <!--give the button a value of listTitle which will be put at the top of server.
+                allows us to tap into what list its been added to-->
+            <button type="submit" name="list" value=<%= listTitle %>>+</button>
+    
+        </form>
+
+   </div>
+
+   <%- include("footer") -%>
